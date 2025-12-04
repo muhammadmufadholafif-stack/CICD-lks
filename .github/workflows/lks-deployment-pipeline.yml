@@ -1,1 +1,7 @@
+name: LKS CI/CD Deployment Pipeline
 
+on:
+  push:
+    branches:
+      - main  # Pipeline akan berjalan setiap kali ada push ke branch main
+  workflow_dispatch:  # Opsional: memungkinkan pemicuan manual dari Actions tab
