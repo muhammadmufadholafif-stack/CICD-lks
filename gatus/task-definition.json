@@ -1,14 +1,14 @@
 {
   // FILL IN THE MISSING VALUES BELOW
-  "family": "",
-  "taskRoleArn": "",
-  "executionRoleArn": "",
-  "networkMode": "",
+  "family": "lks-gatus-app",
+  "taskRoleArn": "arn:aws:iam::058264312860:role/LabRole",
+  "executionRoleArn": "arn:aws:iam::058264312860:role/LabRole",
+  "networkMode": "awsvpc",
   "volumes": [],
   "placementConstraints": [],
-  "requiresCompatibilities": ???,
-  "cpu": "",
-  "memory": "",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "512",
+  "memory": "1024",
   // FILL IN THE MISSING VALUES ABOVE
 
   "runtimePlatform": {
@@ -26,12 +26,18 @@
       "systemControls": [],
 
       // FILL IN THE MISSING VALUES BELOW
-      "portMappings": [],
+      "portMappings": [
+        {
+        "containerPort": 8080,
+        "hostPort": 8080,
+        "protocol": "tcp"
+        }
+      ],
       "logConfiguration": {
-        "logDriver": "???",
+        "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "???",
-          "awslogs-region": "???",
+          "awslogs-group": "/ecs/lks/gatus-app",
+          "awslogs-region": "us-east-1",
           "mode": "non-blocking",
           "awslogs-create-group": "true",
           "max-buffer-size": "25m",
@@ -42,3 +48,4 @@
     }
   ]
 }
+koreksi
